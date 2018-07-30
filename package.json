@@ -1,9 +1,12 @@
 {
   "name": "bs-react-native-gifted-chat",
-  "version": "0.0.1",
-  "description": "🏗💬Gifted Chat clone with Reason",
+  "version": "0.0.2",
+  "description": "🏗 💬 Gifted Chat clone with Reason",
+  "keywords": [
+    "BuckleScript", "reason", "reasonml"
+  ],
   "main": "index.js",
   "repository": "https://github.com/xcarpentier/bs-react-native-gifted-chat",
-  "author": "Xavier Carpentier <contact@xaviercarpentier.com> (http://xaviercarpentier.com/)",
+  "author": "Xavier Carpentier <contact@xaviercarpentier.com> (https://xaviercarpentier.com/)",
   "license": "MIT"
 }
