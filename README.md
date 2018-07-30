@@ -1,2 +1,2 @@
-# bs-react-native-gifted-chat
-Gifted Chat clone with Reason
+# bs-react-native-gifted-chat (🏗WIP)
+*Gifted Chat clone with Reason*
