@@ -8,5 +8,13 @@
   "main": "index.js",
   "repository": "https://github.com/xcarpentier/bs-react-native-gifted-chat",
   "author": "Xavier Carpentier <contact@xaviercarpentier.com> (https://xaviercarpentier.com/)",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "bsb -make-world",
+    "start": "bsb -make-world -w",
+    "clean": "bsb -clean-world"
+  },
+  "devDependencies": {
+    "bs-platform": "^4.0.2"
+  }
 }
