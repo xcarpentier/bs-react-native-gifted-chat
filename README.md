@@ -6,6 +6,11 @@
 
 [![CircleCI](https://circleci.com/gh/xcarpentier/bs-react-native-gifted-chat.svg?style=svg)](https://circleci.com/gh/xcarpentier/bs-react-native-gifted-chat)
 
+### My Goal
+
+- Learn reasonml
+- (Maybe) improve GiftedChat
+
 ### TODO
 
 - [ ] Add circleci build (deploy example and publish on npm registry and reason registry)
