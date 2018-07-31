@@ -63,6 +63,7 @@ typings/
 # ReasonML
 .merlin
 *.bs.js
+.bsb.lock
 
 # .vscode
 .vscode

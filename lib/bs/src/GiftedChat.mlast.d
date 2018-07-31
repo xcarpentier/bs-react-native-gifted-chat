@@ -1,0 +1,1 @@
+src/GiftedChat-BsReactNativeGiftedChat.cmj :

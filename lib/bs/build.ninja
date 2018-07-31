@@ -1,0 +1,40 @@
+bs_package_flags = -bs-package-map bs-react-native-gifted-chat
+src_root_dir = /Users/carpentierxqvier/open-source/bs-react-native-gifted-chat
+bsc = /Users/carpentierxqvier/open-source/bs-react-native-gifted-chat/node_modules/bs-platform/lib/bsc.exe
+bsdep = /Users/carpentierxqvier/open-source/bs-react-native-gifted-chat/node_modules/bs-platform/lib/bsb_helper.exe
+warnings = -w -30-40+6+7+27+32..39+44+45+101 -warn-error +5
+bsc_flags = -bs-suffix -nostdlib -I '/Users/carpentierxqvier/open-source/bs-react-native-gifted-chat/node_modules/bs-platform/lib/ocaml' -bs-super-errors -no-alias-deps -color always
+ppx_flags = 
+bs_package_includes = -I /Users/carpentierxqvier/open-source/bs-react-native-gifted-chat/node_modules/reason-react/lib/ocaml -I /Users/carpentierxqvier/open-source/bs-react-native-gifted-chat/node_modules/bs-react-native/lib/ocaml
+bs_package_dev_includes = 
+namespace = -ns BsReactNativeGiftedChat
+bsb_dir_group = 0
+refmt = /Users/carpentierxqvier/open-source/bs-react-native-gifted-chat/node_modules/bs-platform/lib/refmt.exe
+reason_react_jsx = -ppx '/Users/carpentierxqvier/open-source/bs-react-native-gifted-chat/node_modules/bs-platform/lib/reactjs_jsx_ppx_2.exe'
+refmt_flags = --print binary
+bsc_lib_includes = -I . -I src
+rule build_ast_and_module_sets_from_re
+  command = ${bsc} -pp "${refmt} ${refmt_flags}" ${reason_react_jsx}  ${ppx_flags} ${warnings} ${bsc_flags} -c -o ${out} -bs-syntax-only -bs-binary-ast -impl ${in}
+  description = [34mBuilding[39m [2m${out}[22m
+build src/Demo.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/Demo.re
+rule build_deps
+  command = ${bsdep} ${namespace} -g ${bsb_dir_group} -MD ${in}
+  description = [34mBuilding[39m [2m${out}[22m
+build src/Demo.mlast.d : build_deps src/Demo.mlast
+rule build_cmj_cmi
+  command = ${bsc} ${bs_package_flags} -bs-assume-no-mli -bs-no-builtin-ppx-ml -bs-no-implicit-include ${bs_package_includes} ${bsc_lib_includes} ${bsc_extra_includes} ${warnings} ${bsc_flags} -o ${out} -c  ${in} $postbuild
+  depfile = ${in}.d
+  description = [34mBuilding[39m [2m${out}[22m
+build src/Demo-BsReactNativeGiftedChat.cmj |  $src_root_dir/src/Demo.bs.js src/Demo-BsReactNativeGiftedChat.cmi : build_cmj_cmi src/Demo.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:src
+build src/GiftedChat.mlast : build_ast_and_module_sets_from_re $src_root_dir/src/GiftedChat.re
+build src/GiftedChat.mlast.d : build_deps src/GiftedChat.mlast
+build src/GiftedChat-BsReactNativeGiftedChat.cmj |  $src_root_dir/src/GiftedChat.bs.js src/GiftedChat-BsReactNativeGiftedChat.cmi : build_cmj_cmi src/GiftedChat.mlast
+  bsc_flags = $bsc_flags -bs-re-out -bs-super-errors
+  bs_package_flags = $bs_package_flags  -bs-package-output commonjs:src
+rule build_package
+  command = ${bsc} -w -49 -no-alias-deps -c ${in}
+  description = [34mBuilding[39m [2m${out}[22m
+build BsReactNativeGiftedChat.cmi : build_package BsReactNativeGiftedChat.mlmap
+build build.ninja : phony  ||  BsReactNativeGiftedChat.cmi src/GiftedChat.mlast.d src/Demo.mlast.d

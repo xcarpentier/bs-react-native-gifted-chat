@@ -3,7 +3,9 @@
   "version": "0.0.2",
   "description": "🏗 💬 Gifted Chat clone with Reason",
   "keywords": [
-    "BuckleScript", "reason", "reasonml"
+    "BuckleScript",
+    "reason",
+    "reasonml"
   ],
   "main": "index.js",
   "repository": "https://github.com/xcarpentier/bs-react-native-gifted-chat",
@@ -16,5 +18,9 @@
   },
   "devDependencies": {
     "bs-platform": "^4.0.2"
+  },
+  "dependencies": {
+    "bs-react-native": "reasonml-community/bs-react-native#752544cbdeda19914dc2ec769a77b0cf9f2a0ff5",
+    "reason-react": "0.4.2"
   }
 }

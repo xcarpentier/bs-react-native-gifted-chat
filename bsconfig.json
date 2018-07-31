@@ -1,6 +1,8 @@
 {
   "name": "bs-react-native-gifted-chat",
-  "version": "0.1.0",
+  "version": "0.0.2",
+  "bsc-flags": ["-bs-super-errors"],
+  "reason": { "react-jsx": 2 },
   "sources": {
     "dir" : "src",
     "subdirs" : true
@@ -10,10 +12,11 @@
     "in-source": true
   },
   "suffix": ".bs.js",
-  "bs-dependencies": [],
+  "bs-dependencies": ["reason-react", "bs-react-native"],
   "warnings": {
-    "error" : "+101"
+    "error" : "+5"
   },
   "namespace": true,
   "refmt": 3
 }
+
